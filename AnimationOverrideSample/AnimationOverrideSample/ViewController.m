@@ -93,13 +93,13 @@
     _affineLabel.transform = CGAffineTransformMakeTranslation(-100.0f, 0.0f);
     _affineView.transform = CGAffineTransformIdentity;
 
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveLinear animations:^{
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         _affineView.transform = CGAffineTransformRotate(_affineView.transform, PI - 0.01f);
     } completion:^(BOOL finished) {}];
 }
 
 - (IBAction)releaseAffineButton:(id)sender {
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationCurveLinear animations:^{
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         _affineView.transform = CGAffineTransformMakeRotation(-0.01f);
     } completion:^(BOOL finished) {
         if (finished)
