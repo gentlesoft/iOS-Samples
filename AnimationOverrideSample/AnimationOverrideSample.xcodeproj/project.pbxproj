@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		835683911526BD01009B4502 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835683901526BD01009B4502 /* QuartzCore.framework */; };
+		835683941526C2F1009B4502 /* PointLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 835683931526C2F1009B4502 /* PointLayer.m */; };
+		83BF05E1152320CD005F2821 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BF05E0152320CD005F2821 /* UIKit.framework */; };
+		83BF05E3152320CD005F2821 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BF05E2152320CD005F2821 /* Foundation.framework */; };
+		83BF05E5152320CD005F2821 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BF05E4152320CD005F2821 /* CoreGraphics.framework */; };
+		83BF05EB152320CD005F2821 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83BF05E9152320CD005F2821 /* InfoPlist.strings */; };
+		83BF05ED152320CD005F2821 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BF05EC152320CD005F2821 /* main.m */; };
+		83BF05F1152320CD005F2821 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BF05F0152320CD005F2821 /* AppDelegate.m */; };
+		83BF05F4152320CD005F2821 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BF05F2152320CD005F2821 /* MainStoryboard.storyboard */; };
+		83BF05F7152320CD005F2821 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BF05F6152320CD005F2821 /* ViewController.m */; };
+		83BF05FF152320CD005F2821 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BF05FE152320CD005F2821 /* SenTestingKit.framework */; };
+		83BF0600152320CD005F2821 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BF05E0152320CD005F2821 /* UIKit.framework */; };
+		83BF0601152320CD005F2821 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BF05E2152320CD005F2821 /* Foundation.framework */; };
+		83BF0609152320CD005F2821 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83BF0607152320CD005F2821 /* InfoPlist.strings */; };
+		83BF060C152320CD005F2821 /* AnimationOverrideSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BF060B152320CD005F2821 /* AnimationOverrideSampleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83BF0602152320CD005F2821 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83BF05D3152320CD005F2821 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83BF05DB152320CD005F2821;
+			remoteInfo = AnimationOverrideSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		835683901526BD01009B4502 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		835683921526C2F1009B4502 /* PointLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointLayer.h; sourceTree = "<group>"; };
+		835683931526C2F1009B4502 /* PointLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointLayer.m; sourceTree = "<group>"; };
+		83BF05DC152320CD005F2821 /* AnimationOverrideSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationOverrideSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83BF05E0152320CD005F2821 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		83BF05E2152320CD005F2821 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83BF05E4152320CD005F2821 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		83BF05E8152320CD005F2821 /* AnimationOverrideSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnimationOverrideSample-Info.plist"; sourceTree = "<group>"; };
+		83BF05EA152320CD005F2821 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83BF05EC152320CD005F2821 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83BF05EE152320CD005F2821 /* AnimationOverrideSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnimationOverrideSample-Prefix.pch"; sourceTree = "<group>"; };
+		83BF05EF152320CD005F2821 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		83BF05F0152320CD005F2821 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		83BF05F3152320CD005F2821 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		83BF05F5152320CD005F2821 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		83BF05F6152320CD005F2821 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		83BF05FD152320CD005F2821 /* AnimationOverrideSampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimationOverrideSampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83BF05FE152320CD005F2821 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		83BF0606152320CD005F2821 /* AnimationOverrideSampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnimationOverrideSampleTests-Info.plist"; sourceTree = "<group>"; };
+		83BF0608152320CD005F2821 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83BF060A152320CD005F2821 /* AnimationOverrideSampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationOverrideSampleTests.h; sourceTree = "<group>"; };
+		83BF060B152320CD005F2821 /* AnimationOverrideSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationOverrideSampleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83BF05D9152320CD005F2821 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83BF05E1152320CD005F2821 /* UIKit.framework in Frameworks */,
+				83BF05E3152320CD005F2821 /* Foundation.framework in Frameworks */,
+				83BF05E5152320CD005F2821 /* CoreGraphics.framework in Frameworks */,
+				835683911526BD01009B4502 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83BF05F9152320CD005F2821 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83BF05FF152320CD005F2821 /* SenTestingKit.framework in Frameworks */,
+				83BF0600152320CD005F2821 /* UIKit.framework in Frameworks */,
+				83BF0601152320CD005F2821 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83BF05D1152320CD005F2821 = {
+			isa = PBXGroup;
+			children = (
+				83BF05E6152320CD005F2821 /* AnimationOverrideSample */,
+				83BF0604152320CD005F2821 /* AnimationOverrideSampleTests */,
+				83BF05DF152320CD005F2821 /* Frameworks */,
+				83BF05DD152320CD005F2821 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83BF05DD152320CD005F2821 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83BF05DC152320CD005F2821 /* AnimationOverrideSample.app */,
+				83BF05FD152320CD005F2821 /* AnimationOverrideSampleTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83BF05DF152320CD005F2821 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				835683901526BD01009B4502 /* QuartzCore.framework */,
+				83BF05E0152320CD005F2821 /* UIKit.framework */,
+				83BF05E2152320CD005F2821 /* Foundation.framework */,
+				83BF05E4152320CD005F2821 /* CoreGraphics.framework */,
+				83BF05FE152320CD005F2821 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83BF05E6152320CD005F2821 /* AnimationOverrideSample */ = {
+			isa = PBXGroup;
+			children = (
+				83BF05EF152320CD005F2821 /* AppDelegate.h */,
+				83BF05F0152320CD005F2821 /* AppDelegate.m */,
+				83BF05F2152320CD005F2821 /* MainStoryboard.storyboard */,
+				83BF05F5152320CD005F2821 /* ViewController.h */,
+				83BF05F6152320CD005F2821 /* ViewController.m */,
+				835683921526C2F1009B4502 /* PointLayer.h */,
+				835683931526C2F1009B4502 /* PointLayer.m */,
+				83BF05E7152320CD005F2821 /* Supporting Files */,
+			);
+			path = AnimationOverrideSample;
+			sourceTree = "<group>";
+		};
+		83BF05E7152320CD005F2821 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83BF05E8152320CD005F2821 /* AnimationOverrideSample-Info.plist */,
+				83BF05E9152320CD005F2821 /* InfoPlist.strings */,
+				83BF05EC152320CD005F2821 /* main.m */,
+				83BF05EE152320CD005F2821 /* AnimationOverrideSample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83BF0604152320CD005F2821 /* AnimationOverrideSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				83BF060A152320CD005F2821 /* AnimationOverrideSampleTests.h */,
+				83BF060B152320CD005F2821 /* AnimationOverrideSampleTests.m */,
+				83BF0605152320CD005F2821 /* Supporting Files */,
+			);
+			path = AnimationOverrideSampleTests;
+			sourceTree = "<group>";
+		};
+		83BF0605152320CD005F2821 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83BF0606152320CD005F2821 /* AnimationOverrideSampleTests-Info.plist */,
+				83BF0607152320CD005F2821 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83BF05DB152320CD005F2821 /* AnimationOverrideSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83BF060F152320CD005F2821 /* Build configuration list for PBXNativeTarget "AnimationOverrideSample" */;
+			buildPhases = (
+				83BF05D8152320CD005F2821 /* Sources */,
+				83BF05D9152320CD005F2821 /* Frameworks */,
+				83BF05DA152320CD005F2821 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnimationOverrideSample;
+			productName = AnimationOverrideSample;
+			productReference = 83BF05DC152320CD005F2821 /* AnimationOverrideSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83BF05FC152320CD005F2821 /* AnimationOverrideSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83BF0612152320CD005F2821 /* Build configuration list for PBXNativeTarget "AnimationOverrideSampleTests" */;
+			buildPhases = (
+				83BF05F8152320CD005F2821 /* Sources */,
+				83BF05F9152320CD005F2821 /* Frameworks */,
+				83BF05FA152320CD005F2821 /* Resources */,
+				83BF05FB152320CD005F2821 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83BF0603152320CD005F2821 /* PBXTargetDependency */,
+			);
+			name = AnimationOverrideSampleTests;
+			productName = AnimationOverrideSampleTests;
+			productReference = 83BF05FD152320CD005F2821 /* AnimationOverrideSampleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83BF05D3152320CD005F2821 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 83BF05D6152320CD005F2821 /* Build configuration list for PBXProject "AnimationOverrideSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 83BF05D1152320CD005F2821;
+			productRefGroup = 83BF05DD152320CD005F2821 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83BF05DB152320CD005F2821 /* AnimationOverrideSample */,
+				83BF05FC152320CD005F2821 /* AnimationOverrideSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83BF05DA152320CD005F2821 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83BF05EB152320CD005F2821 /* InfoPlist.strings in Resources */,
+				83BF05F4152320CD005F2821 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83BF05FA152320CD005F2821 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83BF0609152320CD005F2821 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		83BF05FB152320CD005F2821 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83BF05D8152320CD005F2821 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83BF05ED152320CD005F2821 /* main.m in Sources */,
+				83BF05F1152320CD005F2821 /* AppDelegate.m in Sources */,
+				83BF05F7152320CD005F2821 /* ViewController.m in Sources */,
+				835683941526C2F1009B4502 /* PointLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83BF05F8152320CD005F2821 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83BF060C152320CD005F2821 /* AnimationOverrideSampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83BF0603152320CD005F2821 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83BF05DB152320CD005F2821 /* AnimationOverrideSample */;
+			targetProxy = 83BF0602152320CD005F2821 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83BF05E9152320CD005F2821 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83BF05EA152320CD005F2821 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		83BF05F2152320CD005F2821 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83BF05F3152320CD005F2821 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		83BF0607152320CD005F2821 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83BF0608152320CD005F2821 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83BF060D152320CD005F2821 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83BF060E152320CD005F2821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83BF0610152320CD005F2821 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimationOverrideSample/AnimationOverrideSample-Prefix.pch";
+				INFOPLIST_FILE = "AnimationOverrideSample/AnimationOverrideSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		83BF0611152320CD005F2821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimationOverrideSample/AnimationOverrideSample-Prefix.pch";
+				INFOPLIST_FILE = "AnimationOverrideSample/AnimationOverrideSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		83BF0613152320CD005F2821 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnimationOverrideSample.app/AnimationOverrideSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimationOverrideSample/AnimationOverrideSample-Prefix.pch";
+				INFOPLIST_FILE = "AnimationOverrideSampleTests/AnimationOverrideSampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		83BF0614152320CD005F2821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnimationOverrideSample.app/AnimationOverrideSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimationOverrideSample/AnimationOverrideSample-Prefix.pch";
+				INFOPLIST_FILE = "AnimationOverrideSampleTests/AnimationOverrideSampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83BF05D6152320CD005F2821 /* Build configuration list for PBXProject "AnimationOverrideSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83BF060D152320CD005F2821 /* Debug */,
+				83BF060E152320CD005F2821 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83BF060F152320CD005F2821 /* Build configuration list for PBXNativeTarget "AnimationOverrideSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83BF0610152320CD005F2821 /* Debug */,
+				83BF0611152320CD005F2821 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83BF0612152320CD005F2821 /* Build configuration list for PBXNativeTarget "AnimationOverrideSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83BF0613152320CD005F2821 /* Debug */,
+				83BF0614152320CD005F2821 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83BF05D3152320CD005F2821 /* Project object */;
+}
