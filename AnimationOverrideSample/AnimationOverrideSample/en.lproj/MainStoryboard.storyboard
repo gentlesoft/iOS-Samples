@@ -36,13 +36,19 @@
                                 <rect key="frame" x="85" y="155" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Affine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="hRQ-Mk-AL5">
-                                        <rect key="frame" x="54" y="65" width="42" height="21"/>
+                                    <view contentMode="scaleToFill" id="5fB-6Q-2kx">
+                                        <rect key="frame" x="54" y="64.5" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Affine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="hRQ-Mk-AL5">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </view>
                                 </subviews>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="Ng7-xt-0Gp">
@@ -86,28 +92,13 @@
                     <connections>
                         <outlet property="affineLabel" destination="hRQ-Mk-AL5" id="TMD-nK-ihw"/>
                         <outlet property="affineView" destination="AZu-qc-WF2" id="fCi-bQ-Yju"/>
+                        <outlet property="rotateView" destination="5fB-6Q-2kx" id="XKE-qk-Gyw"/>
                         <outlet property="scaleButton" destination="boX-eL-Ahi" id="clc-T0-1e4"/>
                     </connections>
                 </viewController>
             </objects>
         </scene>
     </scenes>
-    <classes>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pushAffineButton:"/>
-                <relationship kind="action" name="pushLayerButton:"/>
-                <relationship kind="action" name="pushScaleButton:"/>
-                <relationship kind="action" name="releaseAffineButton:"/>
-                <relationship kind="action" name="releaseLayerButton:"/>
-                <relationship kind="action" name="releaseScaleButton:"/>
-                <relationship kind="outlet" name="affineLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="affineView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scaleButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

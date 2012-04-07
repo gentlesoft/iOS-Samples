@@ -16,6 +16,7 @@
 
 @property (nonatomic, weak) IBOutlet UIButton* scaleButton;
 @property (nonatomic, weak) IBOutlet UIView* affineView;
+@property (nonatomic, weak) IBOutlet UIView* rotateView;
 @property (nonatomic, weak) IBOutlet UILabel* affineLabel;
 @property (nonatomic, strong) CALayer* pointLayer;
 
@@ -34,6 +35,7 @@
 
 @synthesize scaleButton = _scaleButton;
 @synthesize affineView = _affineView;
+@synthesize rotateView = _rotateView;
 @synthesize affineLabel = _affineLabel;
 @synthesize pointLayer = _pointLayer;
 
@@ -90,17 +92,41 @@
 
 - (IBAction)pushAffineButton:(id)sender {
     _affineLabel.hidden = NO;
-    _affineLabel.transform = CGAffineTransformMakeTranslation(-100.0f, 0.0f);
+    CGAffineTransform trans = CGAffineTransformMakeTranslation(-100.0f, 0.0f);
+    _rotateView.transform = trans;
+    _affineLabel.transform = CGAffineTransformIdentity;
     _affineView.transform = CGAffineTransformIdentity;
 
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         _affineView.transform = CGAffineTransformRotate(_affineView.transform, PI - 0.01f);
+        
+        [UIView animateWithDuration:1.0f / 2.5f delay:0 options:UIViewAnimationOptionOverrideInheritedDuration animations:^{
+            [UIView setAnimationRepeatCount:2.5f];
+            _rotateView.transform = CGAffineTransformRotate(trans, PI);
+            _affineLabel.transform = CGAffineTransformMakeRotation(PI);
+        } completion:^(BOOL finished) {
+            if (finished)
+                _affineLabel.transform = CGAffineTransformIdentity;
+        }];
     } completion:^(BOOL finished) {}];
 }
 
 - (IBAction)releaseAffineButton:(id)sender {
+    CGAffineTransform trans = CGAffineTransformMakeTranslation(-100.0f, 0.0f);
+    _rotateView.transform = CGAffineTransformRotate(trans, PI);
+    _affineLabel.transform = CGAffineTransformIdentity;
+    
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         _affineView.transform = CGAffineTransformMakeRotation(-0.01f);
+        
+        [UIView animateWithDuration:1.0f / 2.5f delay:0 options:UIViewAnimationOptionOverrideInheritedDuration animations:^{
+            [UIView setAnimationRepeatCount:2.5f];
+            _rotateView.transform = CGAffineTransformRotate(trans, 0.01f);
+            _affineLabel.transform = CGAffineTransformMakeRotation(PI);
+        } completion:^(BOOL finished) {
+            if (finished)
+                _affineLabel.transform = CGAffineTransformIdentity;
+        }];
     } completion:^(BOOL finished) {
         if (finished)
             _affineLabel.hidden = YES;
