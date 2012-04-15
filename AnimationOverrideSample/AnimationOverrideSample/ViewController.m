@@ -29,6 +29,9 @@
 - (IBAction)pushLayerButton:(id)sender;
 - (IBAction)releaseLayerButton:(id)sender;
 
+- (IBAction)pushLayerButton2:(id)sender;
+- (IBAction)releaseLayerButton2:(id)sender;
+
 @end
 
 @implementation ViewController
@@ -200,6 +203,32 @@
     group.repeatCount=3;
     group.animations = anims;
     [_pointLayer addAnimation:group forKey:@"nil"];
+}
+
+- (IBAction)pushLayerButton2:(id)sender {
+    
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:1.5f];
+    [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]]; 
+
+    _pointLayer.anchorPoint = CGPointMake(-8.0f, 0.5f);
+    CATransform3D trans = CATransform3DMakeTranslation(0, -160, 0);
+    trans = CATransform3DRotate(trans, PI, 0.0f, 1.0f, 0.0f);
+    trans = CATransform3DTranslate(trans, -50.0f, 0.0f, 0.0f);
+    _pointLayer.transform = trans;
+    
+    [CATransaction commit];
+}
+
+- (IBAction)releaseLayerButton2:(id)sender {
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:1.5f];
+    [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]]; 
+    
+    _pointLayer.anchorPoint = CGPointMake(0.5f, 0.5f);
+    _pointLayer.transform = CATransform3DIdentity;
+    
+    [CATransaction commit];
 }
 
 @end
