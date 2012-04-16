@@ -13,7 +13,9 @@
 @class ManagedObjectController;
 
 @interface MasterViewController : UITableViewController {
+    UIBarButtonItem* _doneButton;
     NSMutableArray* _content;
+    NSFetchRequest* _currentFetch;
 }
 
 @property (strong, nonatomic) ManagedObjectController* managedObjectController;

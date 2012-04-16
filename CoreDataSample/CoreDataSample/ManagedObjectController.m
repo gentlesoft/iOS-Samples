@@ -13,6 +13,19 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize fetchAllSortedByName = _fetchAllSortedByName;
+
+#pragma mark - Public Method
+
+- (NSUInteger)userCount {
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    request.resultType = NSCountResultType;
+    NSArray* result = [self.managedObjectContext executeFetchRequest:request error:nil];
+    if (result != nil && [result count] > 0)
+        return [[result objectAtIndex:0] intValue];
+    else 
+        return 0;
+}
 
 - (void)saveContext
 {
@@ -26,6 +39,17 @@
             abort();
         } 
     }
+}
+
+#pragma mark - Properties
+
+- (NSFetchRequest*)fetchAllSortedByName {
+    if (_fetchAllSortedByName != nil)
+        return _fetchAllSortedByName;
+    
+    _fetchAllSortedByName = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    _fetchAllSortedByName.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    return _fetchAllSortedByName;
 }
 
 #pragma mark - Core Data stack
