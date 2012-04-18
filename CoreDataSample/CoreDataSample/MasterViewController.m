@@ -24,6 +24,7 @@
 @property (strong, nonatomic) User* createdUser;
 
 - (IBAction)editButtonPress:(id)sender;
+- (BOOL)hideMoreCell;
 - (void)reloadTableData:(BOOL)animated;
 - (void)readMoreData;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -32,9 +33,9 @@
 
 @implementation MasterViewController
 
+@synthesize managedObjectController = _managedObjectController;
 @synthesize addButton = _addButton;
 @synthesize editButton = _editButton;
-@synthesize managedObjectController = _managedObjectController;
 @synthesize selectedIndex = _selectedIndex;
 @synthesize createdUser = _createdUser;
 
@@ -106,8 +107,14 @@
 
 - (IBAction)editButtonPress:(id)sender {
     [self.tableView setEditing:!self.tableView.editing animated:YES];
-    [self.tableView reloadSections:[NSArray arrayWithObject:[NSIndexSet indexSetWithIndex:SECTION_NO_MORE]]
-                                           withRowAnimation:UITableViewRowAnimationAutomatic];
+    if (![self hideMoreCell]) {
+        if (self.tableView.editing)
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:SECTION_NO_MORE]
+                          withRowAnimation:UITableViewRowAnimationFade];
+        else 
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:SECTION_NO_MORE]
+                          withRowAnimation:UITableViewRowAnimationFade];
+    }
     
     if (self.tableView.editing) {
         [self.navigationItem setRightBarButtonItem:nil animated:YES];
@@ -123,7 +130,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView.editing || [self.managedObjectController userCount] <= [_content count])
+    if (tableView.editing || [self hideMoreCell])
         return 1;
     else 
         return 2;
@@ -229,6 +236,10 @@
 }
 
 #pragma mark - Private Method
+
+- (BOOL)hideMoreCell {
+    return [self.managedObjectController userCount] <= [_content count];
+}
 
 - (void)reloadTableData:(BOOL)animated {
     NSError* error;
