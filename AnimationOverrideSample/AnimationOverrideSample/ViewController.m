@@ -162,7 +162,7 @@
     
     anim = [CABasicAnimation animationWithKeyPath:@"anchorPoint"];
     anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(0.5f, 0.5f)];
-    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(-8.0f, 0.5f)];
+    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(-12.5f, 0.5f)];
     [anims addObject:anim];
     
     CATransform3D trans = CATransform3DMakeTranslation(0, -160, 0);
@@ -187,7 +187,7 @@
     
     anim = [CABasicAnimation animationWithKeyPath:@"anchorPoint"];
     anim.toValue = [NSValue valueWithCGPoint:CGPointMake(0.5f, 0.5f)];
-    anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(-8.0f, 0.5f)];
+    anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(-12.5f, 0.5f)];
     [anims addObject:anim];
     
     CATransform3D trans = CATransform3DMakeTranslation(0, -160, 0);
