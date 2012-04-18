@@ -19,13 +19,4 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-CG_INLINE NSString* uuid() {
-    CFUUIDRef uuid = CFUUIDCreate(NULL);
-    CFStringRef uid = CFUUIDCreateString(NULL, uuid);
-    NSString* res = (__bridge NSString*)uid;
-    CFRelease(uid);
-    CFRelease(uuid);
-    return res;
-}
-
 @end
