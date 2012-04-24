@@ -47,6 +47,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <inset key="contentInset" minX="0.0" minY="44" maxX="0.0" maxY="0.0"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="44" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="LV6-cX-kfe"/>
                                 </connections>
@@ -62,6 +63,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <inset key="contentInset" minX="0.0" minY="44" maxX="0.0" maxY="0.0"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="44" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="szt-Ji-vFh"/>
                                 </connections>
