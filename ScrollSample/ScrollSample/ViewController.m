@@ -29,6 +29,7 @@
     _scrollViewL.contentSize = [[[_scrollViewL subviews] objectAtIndex:0] bounds].size;    
     _scrollViewR.contentSize = [[[_scrollViewR subviews] objectAtIndex:0] bounds].size;
     
+    _scrollViewL.panGestureRecognizer.minimumNumberOfTouches = 2;
     [self setScrollViewTop:_scrollViewL];
 }
 
@@ -54,16 +55,18 @@
     return [scrollView.subviews objectAtIndex:0];
 }
 
-- (void)scrollViewDidZoom:(UIScrollView*)scrollView {
-    UIView* cnView = [[scrollView subviews] objectAtIndex:0];
-    CGRect rc = cnView.frame;
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale {
+    CGRect rc =  view.frame;
     rc.origin = CGPointZero;
-    if (rc.size.width < scrollView.bounds.size.width)
-        rc.origin.x = (scrollView.bounds.size.width - rc.size.width) / 2.0f;
-    if (rc.size.height + scrollView.contentInset.top < scrollView.bounds.size.height)
-        rc.origin.y = (scrollView.bounds.size.height - rc.size.height - scrollView.contentInset.top) / 2.0f;
+    CGSize scrollSize = CGSizeMake(scrollView.bounds.size.width - scrollView.contentInset.left - scrollView.contentInset.right
+                                   , scrollView.bounds.size.height - scrollView.contentInset.top - scrollView.contentInset.bottom);
+    
+    if (rc.size.width < scrollSize.width)
+        rc.origin.x = (scrollSize.width - rc.size.width) / 2.0f;
+    if (rc.size.height < scrollSize.height)
+        rc.origin.y = (scrollSize.height - rc.size.height) / 2.0f;
 
-    [[[scrollView subviews] objectAtIndex:0] setFrame:rc];
+    [view setFrame:rc];
 }
 
 #pragma mark - Private Method
