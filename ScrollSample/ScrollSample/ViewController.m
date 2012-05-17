@@ -55,7 +55,8 @@
     return [scrollView.subviews objectAtIndex:0];
 }
 
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale {
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    UIView* view = (UIView*)[scrollView.subviews objectAtIndex:0];
     CGRect rc =  view.frame;
     rc.origin = CGPointZero;
     CGSize scrollSize = CGSizeMake(scrollView.bounds.size.width - scrollView.contentInset.left - scrollView.contentInset.right
