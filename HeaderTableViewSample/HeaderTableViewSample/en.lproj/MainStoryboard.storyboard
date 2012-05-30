@@ -179,7 +179,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="segmentedControl" destination="DBg-QY-VLf" id="PmN-U0-Zub"/>
+                        <outlet property="segmentedControl" destination="DBg-QY-VLf" id="0LE-Ov-UBw"/>
                     </connections>
                 </tableViewController>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="DBg-QY-VLf">
