@@ -8,12 +8,37 @@
 
 #import "ManagedObjectController.h"
 
+@interface ManagedObjectController()
+
+@property (readonly, nonatomic) NSURL* cloudPath;
+@property (readonly, nonatomic) NSURL* tlogPath;
+
+- (void)initCloudPath;
+- (void)mergeChangesFrom_iCloud:(NSNotification*)notification;
+
+@end
+
 @implementation ManagedObjectController
 
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize fetchAllSortedByName = _fetchAllSortedByName;
+@synthesize cloudPath = _cloudPath;
+@synthesize tlogPath = _tlogPath;
+
+- (id)init {
+    self = [super init];
+    if (self != nil) {
+        [self initCloudPath];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(mergeChangesFrom_iCloud:) 
+                                                     name:NSPersistentStoreDidImportUbiquitousContentChangesNotification 
+                                                   object:nil];
+    }
+    return self;
+}
 
 #pragma mark - Public Method
 
@@ -54,6 +79,17 @@
 
 #pragma mark - Core Data stack
 
+// NSNotifications are posted synchronously on the caller's thread
+// make sure to vector this back to the thread we want, in this case
+// the main thread for our views & controller
+- (void)mergeChangesFrom_iCloud:(NSNotification *)notification {
+    [self.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
+    [[NSNotificationCenter defaultCenter] postNotification:
+     [NSNotification notificationWithName:@"RefetchAllDatabaseData" 
+                                   object:self  
+                                 userInfo:[notification userInfo]]];
+}
+
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
 - (NSManagedObjectContext *)managedObjectContext
@@ -66,7 +102,10 @@
     if (coordinator != nil) {
         __managedObjectContext = [[NSManagedObjectContext alloc] init];
         [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+        __managedObjectContext.mergePolicy = [[NSMergePolicy alloc] 
+                                              initWithMergeType:NSMergeByPropertyStoreTrumpMergePolicyType];
     }
+        
     return __managedObjectContext;
 }
 
@@ -94,7 +133,27 @@
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    
+    NSDictionary* options;
+    if (self.cloudPath != nil){
+        options = [NSDictionary dictionaryWithObjectsAndKeys:
+                   [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                   [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
+                   @"CoreDataSample.store", NSPersistentStoreUbiquitousContentNameKey,
+                   self.tlogPath, NSPersistentStoreUbiquitousContentURLKey,
+                   nil];
+    } else {
+        options = [[NSDictionary alloc] initWithObjectsAndKeys:
+                   [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption
+                   , [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption
+                   , nil];
+    }
+    
+    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType 
+                                                    configuration:nil 
+                                                              URL:storeURL 
+                                                          options:options
+                                                            error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          
@@ -120,7 +179,7 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }    
+    }  
     
     return __persistentStoreCoordinator;
 }
@@ -132,5 +191,36 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+#pragma mark - Private Method
+
+- (void)initCloudPath 
+{
+    _tlogPath = nil;
+    
+    NSFileManager* fileMgr = [NSFileManager defaultManager];
+    _cloudPath = [fileMgr URLForUbiquityContainerIdentifier:nil];
+    if (_cloudPath == nil)
+        return;
+    
+    _cloudPath = [_cloudPath URLByAppendingPathComponent:@"Documents" isDirectory:YES];
+    _tlogPath = [_cloudPath URLByAppendingPathComponent:@"TLOG" isDirectory:YES];
+    
+    BOOL exists, isDir;
+    [fileMgr createDirectoryAtURL:_cloudPath withIntermediateDirectories:NO attributes:nil error:nil];
+    exists = [fileMgr fileExistsAtPath:[_cloudPath relativePath] isDirectory:&isDir];
+    if (exists && isDir) {
+        [fileMgr createDirectoryAtURL:_tlogPath withIntermediateDirectories:NO attributes:nil error:nil];    
+        exists = [fileMgr fileExistsAtPath:[_tlogPath relativePath] isDirectory:&isDir];
+        //directory exists
+        if (exists && isDir)
+            return;
+    }
+    
+    //fail create directrory
+    _cloudPath = nil;
+    _tlogPath = nil;
+}
+
 
 @end

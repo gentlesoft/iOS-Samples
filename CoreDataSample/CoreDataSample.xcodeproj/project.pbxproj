@@ -66,6 +66,7 @@
 		8308A137153B893000D1AE0B /* ManagedObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectController.m; sourceTree = "<group>"; };
 		8308A13A153B8D4700D1AE0B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		8308A13B153B8D4700D1AE0B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		838D13E3158165CF00312F23 /* CoreDataSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CoreDataSample.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +145,7 @@
 		8308A0FD153B88DB00D1AE0B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				838D13E3158165CF00312F23 /* CoreDataSample.entitlements */,
 				8308A0FE153B88DB00D1AE0B /* CoreDataSample-Info.plist */,
 				8308A0FF153B88DB00D1AE0B /* InfoPlist.strings */,
 				8308A102153B88DB00D1AE0B /* main.m */,
@@ -393,6 +395,7 @@
 		8308A12D153B88DB00D1AE0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CoreDataSample/CoreDataSample.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreDataSample/CoreDataSample-Prefix.pch";
 				INFOPLIST_FILE = "CoreDataSample/CoreDataSample-Info.plist";
@@ -404,6 +407,7 @@
 		8308A12E153B88DB00D1AE0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CoreDataSample/CoreDataSample.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreDataSample/CoreDataSample-Prefix.pch";
 				INFOPLIST_FILE = "CoreDataSample/CoreDataSample-Info.plist";
@@ -465,6 +469,7 @@
 				8308A12E153B88DB00D1AE0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8308A12F153B88DB00D1AE0B /* Build configuration list for PBXNativeTarget "CoreDataSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +478,7 @@
 				8308A131153B88DB00D1AE0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

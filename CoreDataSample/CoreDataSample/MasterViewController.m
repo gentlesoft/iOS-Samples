@@ -25,7 +25,7 @@
 
 - (IBAction)editButtonPress:(id)sender;
 - (BOOL)hideMoreCell;
-- (void)reloadTableData:(BOOL)animated;
+- (void)reloadTableData:(NSNotification*)notification;
 - (void)readMoreData;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
@@ -48,6 +48,11 @@
 {
     [super viewDidLoad];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTableData:) 
+                                                 name:@"RefetchAllDatabaseData"
+                                               object:nil];
+    
     _doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
                                                                 target:self 
                                                                 action:@selector(editButtonPress:)];
@@ -57,12 +62,17 @@
     _currentFetch = self.managedObjectController.fetchAllSortedByName;
     _currentFetch.fetchLimit = ROW_READ_COUNT;
     _currentFetch.fetchBatchSize = ROW_READ_COUNT;
-    [self reloadTableData:NO];
+    [self reloadTableData:nil];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadAllData) 
+                                                 name:@"RefetchAllDatabaseData"
+                                               object:nil];
+    
     // Release any retained subviews of the main view.
     _doneButton = nil;
     _content = nil;
@@ -241,7 +251,7 @@
     return [self.managedObjectController userCount] <= [_content count];
 }
 
-- (void)reloadTableData:(BOOL)animated {
+- (void)reloadTableData:(NSNotification*)notification {
     NSError* error;
     _currentFetch.fetchOffset = 0;
     _content = [NSMutableArray arrayWithArray:[self.managedObjectContext executeFetchRequest:_currentFetch
@@ -262,6 +272,10 @@
     User* user = [_content objectAtIndex:indexPath.row];
     cell.textLabel.text = user.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Tel:%@  Email:%@", user.tel, user.email];
+}
+
+- (void)reloadAllData {
+    
 }
 
 @end
