@@ -102,8 +102,7 @@
     if (coordinator != nil) {
         __managedObjectContext = [[NSManagedObjectContext alloc] init];
         [__managedObjectContext setPersistentStoreCoordinator:coordinator];
-        __managedObjectContext.mergePolicy = [[NSMergePolicy alloc] 
-                                              initWithMergeType:NSMergeByPropertyStoreTrumpMergePolicyType];
+        __managedObjectContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
     }
         
     return __managedObjectContext;
